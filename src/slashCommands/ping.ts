@@ -1,4 +1,4 @@
-import { SlashCommandBuilder, EmbedBuilder } from "discord.js";
+import { SlashCommandBuilder } from "discord.js";
 import type { SlashCommand } from "../types";
 
 const command: SlashCommand = {
@@ -6,9 +6,7 @@ const command: SlashCommand = {
 
 	execute: (interaction) => {
 		void interaction.reply({
-			embeds: [
-				new EmbedBuilder().setDescription(`Pong! \n Ping: ${interaction.client.ws.ping}`),
-			],
+			content: `Pong! Ping: ${interaction.client.ws.ping} ms.`,
 		});
 	},
 

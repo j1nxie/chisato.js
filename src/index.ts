@@ -1,4 +1,4 @@
-import { token } from "../config.json";
+import { token, osuClientId, osuToken } from "../config.json";
 import { Client, GatewayIntentBits, Collection } from "discord.js";
 import { readdirSync } from "fs";
 import { join } from "path";
