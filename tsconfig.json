@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"target": "es2021",
+		"module": "CommonJS",
+		"resolveJsonModule": true,
+		"outDir": "./build",
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
+		"useUnknownInCatchVariables": true
+	}
+}

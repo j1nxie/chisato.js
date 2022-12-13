@@ -1,0 +1,12 @@
+{
+	"name": "chisato.js",
+	"version": "0.1.0",
+	"description": "",
+	"main": "index.js",
+	"author": "j1nxie",
+	"dependencies": {
+		"discord.js": "^14.7.1",
+		"@discordjs/rest": "^1.4.0",
+		"typescript": "^4.9.4"
+	}
+}
