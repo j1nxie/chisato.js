@@ -1,21 +1,29 @@
-import { Client } from 'discord.js';
-import { readdirSync } from 'fs';
-import { join } from 'path';
-import { BotEvent } from '../types';
+import { readdirSync } from "fs";
+import { join } from "path";
+import type { BotEvent } from "../types";
+import type { Client } from "discord.js";
 
 module.exports = (client: Client) => {
-	let eventsDir = join(__dirname, '../events');
+	const eventsDir = join(__dirname, "../events");
 
-	readdirSync(eventsDir).forEach(file => {
-		if (!file.endsWith('.js')) {
+	readdirSync(eventsDir).forEach((file) => {
+		if (!file.endsWith(".js")) {
 			return;
 		}
 
-		let event: BotEvent = require(`${eventsDir}/${file}`).default;
-		event.once ?
-			client.once(event.name, (...args) => event.execute (...args)) :
-			client.on(event.name, (...args) => event.execute (...args));
+		const event: BotEvent = require(`${eventsDir}/${file}`).default;
+		const eventStatus = event.once ?? false;
+
+		if (eventStatus) {
+			client.once(event.name, (...args) => {
+				event.execute(...args);
+			});
+		} else {
+			client.on(event.name, (...args) => {
+				event.execute(...args);
+			});
+		}
 
 		console.log(`Successfully loaded event ${event.name}`);
 	});
-}
+};

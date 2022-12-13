@@ -1,22 +1,18 @@
-import { SlashCommandBuilder, ChannelType, TextChannel, EmbedBuilder } from 'discord.js';
-
-import { SlashCommand } from '../types';
+import { SlashCommandBuilder, EmbedBuilder } from "discord.js";
+import type { SlashCommand } from "../types";
 
 const command: SlashCommand = {
-	command: new SlashCommandBuilder()
-	.setName('ping')
-	.setDescription("Show bot's ping."),
+	command: new SlashCommandBuilder().setName("ping").setDescription("Show bot's ping."),
 
-	execute: interaction => {
-		interaction.reply({
+	execute: (interaction) => {
+		void interaction.reply({
 			embeds: [
-				new EmbedBuilder()
-				.setDescription(`Pong! \n Ping: ${interaction.client.ws.ping}`)
-			]
-		})
+				new EmbedBuilder().setDescription(`Pong! \n Ping: ${interaction.client.ws.ping}`),
+			],
+		});
 	},
 
-	cooldown: 10
-}
+	cooldown: 10,
+};
 
 export default command;

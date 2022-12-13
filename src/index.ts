@@ -1,9 +1,8 @@
-import { Client, Events, GatewayIntentBits, Collection, PermissionFlagsBits } from 'discord.js';
-import { readdirSync } from 'fs';
-import { join } from 'path';
-
-import { SlashCommand } from './types';
-import { token } from '../config.json';
+import { token } from "../config.json";
+import { Client, GatewayIntentBits, Collection } from "discord.js";
+import { readdirSync } from "fs";
+import { join } from "path";
+import type { SlashCommand } from "./types";
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -11,8 +10,9 @@ client.slashCommands = new Collection<string, SlashCommand>();
 client.cooldowns = new Collection<string, number>();
 
 const handlersDir = join(__dirname, "./handlers");
-readdirSync(handlersDir).forEach(handler => {
+
+readdirSync(handlersDir).forEach((handler) => {
 	require(`${handlersDir}/${handler}`)(client);
 });
 
-client.login(token);
+void client.login(token);
