@@ -7,13 +7,16 @@ definitely not an attempt of me learning JS/TS for actual work lol.
 
 ## usage
 
-- create a file named `config.json`, based on the `config.example.json`.
+- create a file named `.env`, based on the `.env.example`.
 - fill in your Discord application's bot token and client ID.
+- fill in your osu! OAuth application's token and client ID.
 - run the following commands:
 
 ```console
-$ tsc --build
-$ node .\build\src\index.js
+// you can use npm, yarn or pnpm. i use pnpm!
+$ pnpm i
+$ pnpm build
+$ pnpm start
 ```
 
 ## to-do
