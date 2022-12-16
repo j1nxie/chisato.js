@@ -1,8 +1,10 @@
-import { token, osuClientId, osuToken } from "../config.json";
 import { Client, GatewayIntentBits, Collection } from "discord.js";
+import * as dotenv from "dotenv";
 import { readdirSync } from "fs";
 import { join } from "path";
 import type { SlashCommand } from "./types";
+
+dotenv.config();
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -11,8 +13,10 @@ client.cooldowns = new Collection<string, number>();
 
 const handlersDir = join(__dirname, "./handlers");
 
-readdirSync(handlersDir).forEach((handler) => {
-	require(`${handlersDir}/${handler}`)(client);
-});
+const files = readdirSync(handlersDir);
 
-void client.login(token);
+for (const file of files) {
+	require(`${handlersDir}/${file}`)(client);
+}
+
+void client.login(process.env.DISCORD_TOKEN);

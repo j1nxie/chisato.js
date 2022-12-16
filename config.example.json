@@ -1,6 +1,0 @@
-{
-	"token": "your bot token here",
-	"clientId": "your application client ID here",
-	"osuClientId": "your osu! OAuth client ID here",
-	"osuToken": "your osu! OAuth client secret here"
-}

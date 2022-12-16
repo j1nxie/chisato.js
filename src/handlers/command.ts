@@ -1,4 +1,3 @@
-import { token, clientId } from "../../config.json";
 import { REST } from "@discordjs/rest";
 import { Routes } from "discord.js";
 import { readdirSync } from "fs";
@@ -11,7 +10,9 @@ module.exports = (client: Client) => {
 
 	const slashCommandsDir = join(__dirname, "../slashCommands");
 
-	readdirSync(slashCommandsDir).forEach((file) => {
+	const files = readdirSync(slashCommandsDir);
+
+	for (const file of files) {
 		if (!file.endsWith(".js")) {
 			return;
 		}
@@ -20,11 +21,11 @@ module.exports = (client: Client) => {
 
 		slashCommands.push(command.command);
 		client.slashCommands.set(command.command.name, command);
-	});
+	}
 
-	const rest = new REST({ version: "10" }).setToken(token);
+	const rest = new REST({ version: "10" }).setToken(process.env.DISCORD_TOKEN!);
 
-	rest.put(Routes.applicationCommands(clientId), {
+	rest.put(Routes.applicationCommands(process.env.DISCORD_CLIENTID!), {
 		body: slashCommands.map((command) => command.toJSON()),
 	})
 		.then((data: any) => {

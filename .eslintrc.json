@@ -5,7 +5,6 @@
 	"extends": [
 		"plugin:@cadencejs/eslint-plugin/recommended"
 	],
-	"root": true,
 	"rules": {
 		"@typescript-eslint/no-unsafe-assignment": "warn",
 		"@typescript-eslint/no-require-imports": "off",
@@ -16,5 +15,10 @@
 		"@typescript-eslint/no-unsafe-argument": "warn",
 		"no-console": "off",
 		"no-restricted-properties": "off"
+	},
+	"parserOptions": {
+		"project": "tsconfig.json",
+		"tsconfigRootDir": "./",
+		"sourceType": "module"
 	}
 }
