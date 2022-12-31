@@ -8,11 +8,14 @@
 		"@discordjs/rest": "^1.4.0",
 		"discord.js": "^14.7.1",
 		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"mongodb": "^4.13.0",
 		"oauth4webapi": "^2.0.5"
 	},
 	"devDependencies": {
 		"@cadencejs/eslint-plugin": "^0.1.0",
 		"eslint": "^8.29.0",
+		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-cadence": "^0.0.4",
 		"typescript": "^4.9.4"
 	},

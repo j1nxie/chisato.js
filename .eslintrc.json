@@ -3,7 +3,8 @@
 		"@cadencejs/eslint-plugin"
 	],
 	"extends": [
-		"plugin:@cadencejs/eslint-plugin/recommended"
+		"plugin:@cadencejs/eslint-plugin/recommended",
+		"plugin:prettier/recommended"
 	],
 	"rules": {
 		"@typescript-eslint/no-unsafe-assignment": "warn",
