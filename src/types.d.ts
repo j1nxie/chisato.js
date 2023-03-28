@@ -1,9 +1,10 @@
 import type {
 	AutocompleteInteraction,
+	Client,
 	Collection,
 	CommandInteraction,
-	SlashCommandBuilder,
 	Interaction,
+	SlashCommandBuilder,
 } from "discord.js";
 
 export interface SlashCommand {
