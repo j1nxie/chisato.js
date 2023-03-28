@@ -3,6 +3,7 @@ import type {
 	Collection,
 	CommandInteraction,
 	SlashCommandBuilder,
+	Interaction,
 } from "discord.js";
 
 export interface SlashCommand {
@@ -15,7 +16,7 @@ export interface SlashCommand {
 export interface BotEvent {
 	name: string;
 	once?: boolean;
-	execute: (...args) => void;
+	execute: (...args: Array<Interaction>) => void;
 }
 
 declare module "discord.js" {
