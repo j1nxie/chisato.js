@@ -1,4 +1,3 @@
-import { app } from "./server/server.js";
 import { Client, GatewayIntentBits, Collection } from "discord.js";
 import * as dotenv from "dotenv";
 import { readdirSync } from "fs";
@@ -22,7 +21,6 @@ for (const file of files) {
 
 try {
 	void client.login(process.env.DISCORD_TOKEN);
-	app.listen(process.env.PORT);
 } catch (err) {
 	console.error(`Failed to properly boot: ${err}`);
 	process.exit(1);
